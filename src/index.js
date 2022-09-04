@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './components/Home.js';
+import Home from './components/Home.jsx';
 import '../src/styles/Index.css';
 import { createRoot } from 'react-dom/client';
 const container = document.getElementById('root');
