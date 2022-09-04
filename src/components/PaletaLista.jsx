@@ -1,7 +1,17 @@
 import '../styles/PaletaLista.css';
 import { paletas } from 'mocks/paletas';
+import React, { useState } from 'react';
 
 function PaletaLista() {
+	const [paletaSelecionada, setPaletaSelecionada] = useState({});
+
+	const adicionarItem = (paletaIndex) => {
+		const paleta = {
+			[paletaIndex]: Number(paletaSelecionada[paletaIndex] || 0) + 1,
+		};
+		setPaletaSelecionada({ ...paletaSelecionada, ...paleta });
+	};
+
 	return (
 		/* ... */
 
@@ -12,6 +22,10 @@ function PaletaLista() {
 					className="PaletaListaItem"
 					key={`PaletaListaItem-${index}`}
 				>
+					<span className="PaletaListaItem__badge">
+						{' '}
+						{paletaSelecionada[index] || 0}{' '}
+					</span>
 					<div>
 						<div className="PaletaListaItem__titulo">
 							{' '}
@@ -26,7 +40,10 @@ function PaletaLista() {
 							{paleta.descricao}{' '}
 						</div>
 						<div className="PaletaListaItem__acoes Acoes">
-							<button className="Acoes__adicionar Acoes__adicionar--preencher">
+							<button
+								className="Acoes__adicionar Acoes__adicionar--preencher"
+								onClick={() => adicionarItem(index)}
+							>
 								adicionar
 							</button>
 						</div>
