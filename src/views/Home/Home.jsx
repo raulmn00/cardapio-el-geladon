@@ -1,5 +1,5 @@
 import './Home.css';
-import PaletaLista from '../components/PaletaLista/PaletaLista.jsx';
+import PaletaLista from '../../components/PaletaLista/PaletaLista.jsx';
 import sacola from 'assets/icons/sacola.svg';
 import logo from 'assets/icons/logo.svg';
 
