@@ -11,6 +11,22 @@ function PaletaLista() {
 		};
 		setPaletaSelecionada({ ...paletaSelecionada, ...paleta });
 	};
+	const removerItem = (paletaIndex) => {
+		const paleta = {
+			[paletaIndex]: Number(paletaSelecionada[paletaIndex] || 0) - 1,
+		};
+		setPaletaSelecionada({ ...paletaSelecionada, ...paleta });
+	};
+	const removeButton = (canRender, index) =>
+		Boolean(canRender) && (
+			<button
+				className="Acoes__remover"
+				onClick={() => removerItem(index)}
+			>
+				remover
+			</button>
+		);
+
 	const badgeCounter = (canRender, index) =>
 		Boolean(canRender) && (
 			<span className="PaletaListaItem__badge">
@@ -42,11 +58,15 @@ function PaletaLista() {
 						</div>
 						<div className="PaletaListaItem__acoes Acoes">
 							<button
-								className="Acoes__adicionar Acoes__adicionar--preencher"
+								className={`Acoes__adicionar ${
+									!paletaSelecionada[index] &&
+									'Acoes__adicionar--preencher'
+								}`}
 								onClick={() => adicionarItem(index)}
 							>
 								adicionar
 							</button>
+							{removeButton(paletaSelecionada[index], index)}
 						</div>
 					</div>
 					<img
