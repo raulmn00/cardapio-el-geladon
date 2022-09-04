@@ -11,21 +11,22 @@ function PaletaLista() {
 		};
 		setPaletaSelecionada({ ...paletaSelecionada, ...paleta });
 	};
+	const badgeCounter = (canRender, index) =>
+		Boolean(canRender) && (
+			<span className="PaletaListaItem__badge">
+				{' '}
+				{paletaSelecionada[index]}{' '}
+			</span>
+		);
 
 	return (
-		/* ... */
-
-		/* NOVO TRECHO */
 		<div className="PaletaLista">
 			{paletas.map((paleta, index) => (
 				<div
 					className="PaletaListaItem"
 					key={`PaletaListaItem-${index}`}
 				>
-					<span className="PaletaListaItem__badge">
-						{' '}
-						{paletaSelecionada[index] || 0}{' '}
-					</span>
+					{badgeCounter(paletaSelecionada[index], index)}
 					<div>
 						<div className="PaletaListaItem__titulo">
 							{' '}
@@ -56,9 +57,6 @@ function PaletaLista() {
 				</div>
 			))}
 		</div>
-		/* FIM NOVO TRECHO */
-
-		/* ... */
 	);
 }
 
