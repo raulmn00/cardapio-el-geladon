@@ -1,10 +1,12 @@
 import '../styles/Home.css';
+import PaletaLista from './PaletaLista';
 
 function Home() {
 	return (
-		<div className="home-container">
-			<p>Hello World!</p>
-			<h1>Esse é o componente de home!</h1>
+		<div className="home">
+			<div className="Home__container">
+				<PaletaLista />
+			</div>
 		</div>
 	);
 }

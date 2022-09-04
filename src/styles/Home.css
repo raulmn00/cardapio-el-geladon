@@ -1,4 +1,4 @@
-.home-container {
+.home {
 	position: relative;
 	background-image: radial-gradient(
 		farthest-corner at 40px 40px,
@@ -11,4 +11,18 @@
 	border-radius: 20px;
 	color: black;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ... */
+/* NOVO TRECHO */
+.Home__container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media (max-width: 350px) {
+	.Home__container {
+		justify-content: unset;
+	}
 }
