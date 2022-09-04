@@ -1,4 +1,4 @@
-import '../styles/PaletaLista.css';
+import '../../styles/PaletaLista.css';
 import { paletas } from 'mocks/paletas';
 import React, { useState } from 'react';
 
@@ -23,7 +23,7 @@ function PaletaLista() {
 				className="Acoes__remover"
 				onClick={() => removerItem(index)}
 			>
-				remover
+				Remover
 			</button>
 		);
 
