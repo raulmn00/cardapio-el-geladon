@@ -26,7 +26,10 @@ function PaletaLista() {
 		const response = await PaletaService.getLista();
 		setPaletas(response);
 	};
-
+	const getPaletaById = async (paletaId) => {
+		const response = await PaletaService.getById(paletaId);
+		setPaletaModal(response);
+	};
 	useEffect(() => {
 		getLista();
 	}, []);
@@ -46,7 +49,7 @@ function PaletaLista() {
 						removerItem(index);
 					}}
 					clickItem={(paletaId) => {
-						setPaletaModal(paleta);
+						getPaletaById(paletaId);
 					}}
 				/>
 			))}
