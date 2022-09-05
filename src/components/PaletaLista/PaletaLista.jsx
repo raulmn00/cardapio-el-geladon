@@ -6,20 +6,9 @@ import { PaletaService } from 'services/PaletaService.js';
 import PaletaDetalhesModal from 'components/PaletaDetalhesModal/PaletaDetalhesModal';
 
 function PaletaLista() {
-	const paleta = {
-		titulo: 'Açaí com Leite Condensado',
-		descricao:
-			'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-		foto: 'assets/images/acai-com-leite-condensado.png',
-		preco: 10.0,
-		sabor: 'Açaí',
-		recheio: 'Leite Condensado',
-		possuiRecheio: true,
-	};
-
 	const [paletas, setPaletas] = useState([]);
 	const [paletaSelecionada, setPaletaSelecionada] = useState({});
-
+	const [paletaModal, setPaletaModal] = useState(false);
 	const adicionarItem = (paletaIndex) => {
 		const paleta = {
 			[paletaIndex]: Number(paletaSelecionada[paletaIndex] || 0) + 1,
@@ -56,9 +45,18 @@ function PaletaLista() {
 					onRemove={(index) => {
 						removerItem(index);
 					}}
+					clickItem={(paletaId) => {
+						setPaletaModal(paleta);
+					}}
 				/>
 			))}
-			<PaletaDetalhesModal paleta={paleta} />
+
+			{paletaModal && (
+				<PaletaDetalhesModal
+					paleta={paletaModal}
+					closeModal={() => setPaletaModal(false)}
+				/>
+			)}
 		</div>
 	);
 }
