@@ -3,8 +3,11 @@ import Overlay from 'components/Overlay/Overlay';
 
 function Modal({ children, closeModal }) {
 	const handleClick = (e, canClose) => {
+		//Para a prograpagação do evento dos dois elementos, parando apenas no modal e não indo para o overlay tambem
 		e.stopPropagation();
-		if (canClose) closeModal();
+		if (canClose) {
+			closeModal();
+		}
 	};
 
 	return (

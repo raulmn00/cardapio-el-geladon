@@ -3,8 +3,20 @@ import './PaletaLista.css';
 import React, { useState, useEffect } from 'react';
 import PaletaListaItem from 'components/PaletaListaItem/PaletaListaItem';
 import { PaletaService } from 'services/PaletaService.js';
+import PaletaDetalhesModal from 'components/PaletaDetalhesModal/PaletaDetalhesModal';
 
 function PaletaLista() {
+	const paleta = {
+		titulo: 'Açaí com Leite Condensado',
+		descricao:
+			'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
+		foto: 'assets/images/acai-com-leite-condensado.png',
+		preco: 10.0,
+		sabor: 'Açaí',
+		recheio: 'Leite Condensado',
+		possuiRecheio: true,
+	};
+
 	const [paletas, setPaletas] = useState([]);
 	const [paletaSelecionada, setPaletaSelecionada] = useState({});
 
@@ -46,6 +58,7 @@ function PaletaLista() {
 					}}
 				/>
 			))}
+			<PaletaDetalhesModal paleta={paleta} />
 		</div>
 	);
 }

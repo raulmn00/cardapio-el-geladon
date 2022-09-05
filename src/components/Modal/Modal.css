@@ -17,10 +17,10 @@
 	width: 30px;
 	height: 30px;
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	justify-content: center;
 	top: 20px;
-	right: 20px;
+	right: 5px;
 	cursor: pointer;
 	padding: 5px;
 	border-radius: 50%;
@@ -29,6 +29,7 @@
 	transition: all 1s;
 	background-color: rgba(0, 0, 0, 0.2);
 	z-index: 1;
+	align-content: center;
 }
 
 .Modal__close:hover {
